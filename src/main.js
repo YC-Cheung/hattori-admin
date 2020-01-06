@@ -8,6 +8,7 @@ import Element from 'element-ui'
 import './styles/element-variables.scss'
 
 import '@/styles/index.scss' // global css
+import '@/styles/hattori.scss' // custom css
 
 import App from './App'
 import store from './store'
@@ -18,6 +19,8 @@ import './permission' // permission control
 import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
+import adaptive from '@/directive/el-table/index.js'
+Vue.use(adaptive)
 
 /**
  * If you don't want to use mock-server

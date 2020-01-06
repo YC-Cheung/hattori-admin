@@ -1,24 +1,39 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function getUsers(query) {
   return request({
-    url: '/user/login',
+    url: '/users/',
+    method: 'get',
+    params: query
+  })
+}
+
+export function addUser(data) {
+  return request({
+    url: '/users/',
     method: 'post',
     data
   })
 }
 
-export function getInfo(token) {
+export function updateUser(id, data) {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: `/users/${id}/`,
+    method: 'patch',
+    data
   })
 }
 
-export function logout() {
+export function deleteUser(id) {
   return request({
-    url: '/user/logout',
+    url: `/users/${id}/`,
+    method: 'delete'
+  })
+}
+
+export function setUserRoles(id, data) {
+  return request({
+    url: `/users/${id}/roles/`,
     method: 'post'
   })
 }
