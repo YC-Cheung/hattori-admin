@@ -8,7 +8,7 @@ export function getUsers(query) {
   })
 }
 
-export function addUser(data) {
+export function createUser(data) {
   return request({
     url: '/users/',
     method: 'post',
@@ -34,6 +34,7 @@ export function deleteUser(id) {
 export function setUserRoles(id, data) {
   return request({
     url: `/users/${id}/roles/`,
-    method: 'post'
+    method: 'post',
+    data
   })
 }

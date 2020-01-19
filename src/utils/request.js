@@ -45,9 +45,9 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
-    if (res.code !== 0) {
+    if (response.status >= 400) {
       showError(response)
-      return
+      return Promise.reject(res)
     } else {
       return res
     }
@@ -55,7 +55,6 @@ service.interceptors.response.use(
   error => {
     console.log('err' + error) // for debug
     const { response: res } = error
-
     if (res) {
       showError(res)
       if (res.code === 4001) {
@@ -70,6 +69,7 @@ service.interceptors.response.use(
         Message.error('请求失败')
       }
     }
+    return Promise.reject(error)
   }
 )
 

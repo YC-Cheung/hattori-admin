@@ -13,6 +13,7 @@ import '@/styles/hattori.scss' // custom css
 import App from './App'
 import store from './store'
 import router from './router'
+import to from 'await-to-js'
 
 import './icons' // icon
 import './permission' // permission control
@@ -43,6 +44,9 @@ Vue.use(Element, {
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
+
+// register await-to-js
+Object.defineProperty(Vue.prototype, '$to', { value: to })
 
 Vue.config.productionTip = false
 

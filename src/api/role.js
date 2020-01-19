@@ -1,12 +1,5 @@
 import request from '@/utils/request'
 
-export function getRoutes() {
-  return request({
-    url: '/routes',
-    method: 'get'
-  })
-}
-
 export function getRoles() {
   return request({
     url: '/roles/',
@@ -14,7 +7,7 @@ export function getRoles() {
   })
 }
 
-export function addRole(data) {
+export function createRole(data) {
   return request({
     url: '/roles/',
     method: 'post',
@@ -24,22 +17,38 @@ export function addRole(data) {
 
 export function updateRole(id, data) {
   return request({
-    url: `/roles/${id}`,
-    method: 'put',
+    url: `/roles/${id}/`,
+    method: 'patch',
     data
   })
 }
 
 export function deleteRole(id) {
   return request({
-    url: `/roles/${id}`,
+    url: `/roles/${id}/`,
     method: 'delete'
   })
 }
 
-export function getOptions() {
+export function getRoleOptions() {
   return request({
     url: '/roles/options/',
     method: 'get'
+  })
+}
+
+export function setRolePerms(id, data) {
+  return request({
+    url: `/roles/${id}/perms/`,
+    method: 'post',
+    data
+  })
+}
+
+export function setRoleMenus(id, data) {
+  return request({
+    url: `/roles/${id}/menus/`,
+    method: 'post',
+    data
   })
 }
