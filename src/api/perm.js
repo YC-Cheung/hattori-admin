@@ -37,3 +37,11 @@ export function getPermOptions() {
     method: 'get'
   })
 }
+
+export function setPermRoles(id, data) {
+  return request({
+    url: `/perms/${id}/roles/`,
+    method: 'post',
+    data
+  })
+}

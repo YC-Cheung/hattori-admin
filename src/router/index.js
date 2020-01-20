@@ -114,7 +114,7 @@ export const constantRoutes = [
         path: 'perm',
         component: () => import('@/views/system/perm/index'),
         name: 'SystemPerm',
-        meta: { title: '权限管理', icon: 'perm' }
+        meta: { title: '权限管理', icon: 'lock' }
       }
     ]
   }

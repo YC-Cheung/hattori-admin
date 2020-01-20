@@ -18,7 +18,7 @@
       border
       fit
       highlight-current-row
-      height="50"
+      height="400px"
       style="width: 100%"
       @current-change="handleCurrentChange"
     >

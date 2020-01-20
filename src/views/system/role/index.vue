@@ -19,7 +19,7 @@
       border
       fit
       highlight-current-row
-      height="50"
+      height="400px"
       style="width: 100%"
       @current-change="handleCurrentChange"
     >
@@ -65,13 +65,13 @@
       </div>
     </el-dialog>
     <!--弹出窗口：角色菜单设置-->
-    <el-dialog title="角色权限设置" :visible.sync="editMenusDialogVisible" width="40%">
+    <el-dialog title="角色菜单设置" :visible.sync="editMenusDialogVisible" width="40%">
       <div>
         <el-checkbox v-model="checkMenusAll" :indeterminate="isMenusIndeterminate" @change="handlecheckMenusAllChange">全选</el-checkbox>
         <div style="margin: 15px 0;">
-          <el-checkbox-group v-model="updateRoleMenusData.permIds" @change="handleCheckedMenusChange">
+          <el-checkbox-group v-model="updateRoleMenusData.menuIds" @change="handleCheckedMenusChange">
             <el-checkbox v-for="menu in menuOptions" :key="menu.id" class="menu-checkbox" :label="menu.id">
-              {{ menu.name }}
+              {{ menu.title }}
             </el-checkbox>
           </el-checkbox-group>
         </div>
@@ -162,7 +162,6 @@ export default {
         this.permOptions.push(obj)
         this.permMap.set(obj.id, obj.name)
       })
-      console.log(this.permMap)
     },
     async initMenuOptions() {
       const [err, data] = await this.$to(getMenuOptions())
@@ -171,7 +170,6 @@ export default {
         this.menuOptions.push(obj)
         this.menuMap.set(obj.id, obj.title)
       })
-      console.log(this.menuMap)
     },
     async fetchData(query) {
       this.listLoading = true
@@ -205,7 +203,6 @@ export default {
     },
     handleCurrentChange(currentRow, oldCurrentRow) {
       this.selRow = currentRow
-      console.log(this.selRow)
     },
     checkSel() {
       if (this.selRow && this.selRow.id) {
