@@ -3,11 +3,11 @@
     <div class="block">
       <el-row>
         <el-col :span="24">
-          <el-button type="success" size="mini" icon="el-icon-plus" @click="handleCreate">创建</el-button>
-          <el-button type="primary" size="mini" icon="el-icon-edit" @click="handleUpdate">编辑</el-button>
-          <el-button type="danger" size="mini" icon="el-icon-delete" @click="handleDelete">删除</el-button>
-          <el-button type="primary" size="mini" icon="el-icon-s-custom" @click="handleUpdateRolePerms">权限分配</el-button>
-          <el-button type="primary" size="mini" icon="el-icon-s-custom" @click="handleUpdateRoleMenus">菜单设置</el-button>
+          <el-button v-perm="'create_role'" type="success" size="mini" icon="el-icon-plus" @click="handleCreate">创建</el-button>
+          <el-button v-perm="'update_role'" type="primary" size="mini" icon="el-icon-edit" @click="handleUpdate">编辑</el-button>
+          <el-button v-perm="'delete_role'" type="danger" size="mini" icon="el-icon-delete" @click="handleDelete">删除</el-button>
+          <el-button v-perm="'update_role_perms'" type="primary" size="mini" icon="el-icon-s-custom" @click="handleUpdateRolePerms">权限分配</el-button>
+          <el-button v-perm="'update_role_menus'" type="primary" size="mini" icon="el-icon-s-custom" @click="handleUpdateRoleMenus">菜单设置</el-button>
         </el-col>
       </el-row>
     </div>

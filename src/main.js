@@ -21,6 +21,9 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 import adaptive from '@/directive/el-table/index.js'
+import perm from '@/directive/perm/index.js'
+
+Vue.use(perm)
 Vue.use(adaptive)
 
 /**

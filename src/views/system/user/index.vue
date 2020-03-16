@@ -3,10 +3,10 @@
     <div class="block">
       <el-row>
         <el-col :span="24">
-          <el-button type="success" size="mini" icon="el-icon-plus" @click="handleCreate">创建</el-button>
-          <el-button type="primary" size="mini" icon="el-icon-edit" @click="handleUpdate">编辑</el-button>
-          <el-button type="danger" size="mini" icon="el-icon-delete" @click="handleDelete">删除</el-button>
-          <el-button type="primary" size="mini" icon="el-icon-s-custom" @click="handleUpdateUserRoles">角色分配</el-button>
+          <el-button v-perm="'create_user'" type="success" size="mini" icon="el-icon-plus" @click="handleCreate">创建</el-button>
+          <el-button v-perm="'update_user'" type="primary" size="mini" icon="el-icon-edit" @click="handleUpdate">编辑</el-button>
+          <el-button v-perm="'delete_user'" type="danger" size="mini" icon="el-icon-delete" @click="handleDelete">删除</el-button>
+          <el-button v-perm="'update_user_roles'" type="primary" size="mini" icon="el-icon-s-custom" @click="handleUpdateUserRoles">角色分配</el-button>
         </el-col>
       </el-row>
     </div>
