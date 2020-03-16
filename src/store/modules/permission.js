@@ -1,4 +1,5 @@
 import { asyncRoutes, constantRoutes } from '@/router'
+import Layout from '@/layout'
 
 /**
  * Use meta.role to determine if the current user has permission
@@ -11,6 +12,25 @@ function hasPermission(roles, route) {
   } else {
     return true
   }
+}
+
+function dataArrayToRoutes(data) {
+  const routes = []
+  data.forEach(item => {
+    const tmp = { ...item }
+    if (tmp.component === 'Layout') {
+      tmp.component = Layout
+    } else {
+      let subView = tmp.component
+      subView = subView.replace(/^\/*/g, '')
+      tmp.component = () => import(`@/views/${subView}`) // eslint-disable-line
+    }
+    if (tmp.children) {
+      tmp.children = dataArrayToRoutes(tmp.children)
+    }
+    routes.push(tmp)
+  })
+  return routes
 }
 
 /**
@@ -55,6 +75,13 @@ const actions = {
       } else {
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
       }
+      commit('SET_ROUTES', accessedRoutes)
+      resolve(accessedRoutes)
+    })
+  },
+  generateRoutesFromMenus({ commit }, menus) {
+    return new Promise(resolve => {
+      const accessedRoutes = dataArrayToRoutes(menus)
       commit('SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)
     })

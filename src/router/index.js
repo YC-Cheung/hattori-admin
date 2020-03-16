@@ -82,42 +82,42 @@ export const constantRoutes = [
         meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
       }
     ]
-  },
-  {
-    path: '/system',
-    component: Layout,
-    name: 'System',
-    meta: {
-      title: '系统管理',
-      icon: 'system'
-    },
-    children: [
-      {
-        path: 'user',
-        component: () => import('@/views/system/user/index'),
-        name: 'SystemUser',
-        meta: { title: '用户管理', icon: 'user' }
-      },
-      {
-        path: 'role',
-        component: () => import('@/views/system/role/index'),
-        name: 'SystemRole',
-        meta: { title: '角色管理', icon: 'peoples' }
-      },
-      {
-        path: 'menu',
-        component: () => import('@/views/system/menu/index'),
-        name: 'SystemMenu',
-        meta: { title: '菜单管理', icon: 'menu' }
-      },
-      {
-        path: 'perm',
-        component: () => import('@/views/system/perm/index'),
-        name: 'SystemPerm',
-        meta: { title: '权限管理', icon: 'lock' }
-      }
-    ]
   }
+  // {
+  //   path: '/system',
+  //   component: Layout,
+  //   name: 'System',
+  //   meta: {
+  //     title: '系统管理',
+  //     icon: 'system'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'user',
+  //       component: () => import('@/views/system/user/index'),
+  //       name: 'SystemUser',
+  //       meta: { title: '用户管理', icon: 'user' }
+  //     },
+  //     {
+  //       path: 'role',
+  //       component: () => import('@/views/system/role/index'),
+  //       name: 'SystemRole',
+  //       meta: { title: '角色管理', icon: 'peoples' }
+  //     },
+  //     {
+  //       path: 'menu',
+  //       component: () => import('@/views/system/menu/index'),
+  //       name: 'SystemMenu',
+  //       meta: { title: '菜单管理', icon: 'menu' }
+  //     },
+  //     {
+  //       path: 'perm',
+  //       component: () => import('@/views/system/perm/index'),
+  //       name: 'SystemPerm',
+  //       meta: { title: '权限管理', icon: 'lock' }
+  //     }
+  //   ]
+  // }
   // {
   //   path: '/guide',
   //   component: Layout,
